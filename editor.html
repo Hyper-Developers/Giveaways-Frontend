@@ -19,6 +19,7 @@
                 border:none;
                 outline: none;
                 background-color: inherit;
+                color: inherit;
             }
         </style>
     </head>
@@ -55,8 +56,8 @@
                             <li v-for="entry in giveaway.entries">If {{ entry.condition }}: <input v-model="entry.entries" class="borderless-input"/> extra entries.</li>
                         </ul>
                         <div class="btn-group w-100" role="group" aria-label="Basic example">
-                              <button type="button" class="btn btn-warning">Add Reward</button>
-                              <button type="button" class="btn btn-danger">Add Requirement</button>
+                              <button type="button" class="btn btn-success">Add Reward</button>
+                              <button type="button" class="btn btn-warning">Add Requirement</button>
                               <button type="button" class="btn btn-info">Add Additional Entries</button>
                         </div>
                     </div>
