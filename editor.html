@@ -12,6 +12,14 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <noscript><style> .jsonly { display: none !important; } </style></noscript>
+        <style>
+            .borderless-input {
+              appearance: none;
+              border-width:0px;
+              border:none;
+              outline: none;
+            }
+        </style>
     </head>
     <body style="background-color: #23272a;" class="h-100">
         <noscript class="w-100 h-100">
@@ -28,7 +36,7 @@
         <div class="jsonly w-100 h-100" id="app">
             <div style="min-width: 25%; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);">
                 <div class="card text-white bg-dark mb-3 w-100">
-                    <div class="card-header"><img src="https://img.icons8.com/pastel-glyph/25/ffffff/multi-edit.png" style="vertical-align:middle; display:inline;"/><div contenteditable="true">{{ giveaway.title }}</div></div>
+                    <div class="card-header"><img src="https://img.icons8.com/pastel-glyph/25/ffffff/multi-edit.png" style="vertical-align:middle; display:inline;"/><input v-model="giveaway.title" class="borderless-input"/></div>
                     <div class="card-body">
                         <h5 class="card-title">Rewards:</h5>
                         <ul>
@@ -42,8 +50,8 @@
                         </ul>
                         <h5 class="card-title">Additional Entries:</h5>
                         <ul>
-                            <li>Default: {{ giveaway.defaultEntries }}</li>
-                            <li v-for="entry in giveaway.entries">If {{ entry.condition }}: {{ entry.entries }} extra entries.</li>
+                            <li>Default: <input v-model="giveaway.defaultEntries" class="borderless-input"/> entries</li>
+                            <li v-for="entry in giveaway.entries">If {{ entry.condition }}: <input v-model="entry.entries" class="borderless-input"/> extra entries.</li>
                         </ul>
                         <div class="btn-group w-100" role="group" aria-label="Basic example">
                               <button type="button" class="btn btn-warning">Add Reward</button>
