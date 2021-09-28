@@ -28,15 +28,27 @@
         <div class="jsonly w-100 h-100" id="#app">
             <div style="min-width: 25%; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);">
                 <div class="card text-white bg-dark mb-3 w-100">
-                    <div class="card-header" contenteditable="true">Giveaway Title</div>
+                    <div class="card-header"><img src="https://img.icons8.com/pastel-glyph/500/ffffff/multi-edit.png" style="vertical-align:middle; display:inline;"/><div contenteditable="true">{{ giveaway.title }}</div></div>
                     <div class="card-body">
                         <h5 class="card-title">Rewards:</h5>
+                        <ul>
+                            <li v-if="giveaway.rewards.length == 0">None</li>
+                            <li v-for="reward in giveaway.rewards">{{ reward }}</li>
+                        </ul>
                         <h5 class="card-title">Requirements:</h5>
+                        <ul>
+                            <li v-if="giveaway.requirements.length == 0">None</li>
+                            <li v-for="requirement in giveaway.requirements">{{ requirement }}</li>
+                        </ul>
                         <h5 class="card-title">Additional Entries:</h5>
+                        <ul>
+                            <li>Default: {{ giveaway.defaultEntries }}</li>
+                            <li v-for="entry in giveaway.entries">If {{ entry.condition }}: {{ entry.entries }} extra entries.</li>
+                        </ul>
                         <div class="btn-group w-100" role="group" aria-label="Basic example">
-                              <button type="button" class="btn btn-primary">Add Reward</button>
-                              <button type="button" class="btn btn-primary">Add Requirement</button>
-                              <button type="button" class="btn btn-primary">Add Additional Entry</button>
+                              <button type="button" class="btn btn-warning">Add Reward</button>
+                              <button type="button" class="btn btn-danger">Add Requirement</button>
+                              <button type="button" class="btn btn-info">Add Additional Entries</button>
                         </div>
                     </div>
                 </div>
