@@ -9,5 +9,5 @@ var app = new Vue({
       entries: []
     }
   }
-})l
+});
 
